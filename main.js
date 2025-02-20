@@ -18,7 +18,7 @@ function createWindow() {
 
   win.removeMenu();
   win.loadFile("index.html");
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
   
   ipcMain.on("load-page", (event, page) => {
     win.loadFile(page);
@@ -31,6 +31,14 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
+  });
+
+
+  ipcMain.handle("take-screenshot", async () => {
+    const image = await win.webContents.capturePage(); // Capture the window content
+    const screenshotPath = path.join(app.getPath("desktop"), `screenshot-${Date.now()}.png`);
+    fs.writeFileSync(screenshotPath, image.toPNG());
+    return screenshotPath;
   });
 });
 

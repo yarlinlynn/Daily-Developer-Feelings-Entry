@@ -1,29 +1,15 @@
 const buttons = document.querySelectorAll(".btn");
 const dashboard = document.querySelector(".dashboardDiv");
-const textareas = document.querySelectorAll("textarea"); // Select all textareas
+const textareas = document.querySelectorAll("textarea");
 
-// Function to count number of lines in textarea
+const saveBtn = document.getElementById("save-btn");
+
+let selectedColor = null; // Store selected color globally
+
 function countLines(textarea) {
     const lineHeight = parseInt(getComputedStyle(textarea).lineHeight);
     return Math.floor(textarea.scrollHeight / lineHeight);
 }
-
-// Function to remove all hover classes
-const removeHoverClasses = () => {
-    dashboard.classList.remove(
-        "hover-bg1", "hover-bg2", "hover-bg3", "hover-bg4",
-        "hover-bg5", "hover-bg6", "hover-bg7", "hover-bg8"
-    );
-
-    // Remove hover classes from all buttons
-    buttons.forEach(btn => {
-        btn.classList.remove(
-            "hover-btn-bg1", "hover-btn-bg2", "hover-btn-bg3",
-            "hover-btn-bg4", "hover-btn-bg5", "hover-btn-bg6",
-            "hover-btn-bg7", "hover-btn-bg8"
-        );
-    });
-};
 
 textareas.forEach((textarea) => {
     textarea.addEventListener("input", function () {
@@ -41,61 +27,70 @@ textareas.forEach((textarea) => {
     });
 });
 
-buttons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-        removeHoverClasses(); // Remove previous classes first
+const removeHoverClasses = () => {
+    dashboard.classList.remove(
+        "hover-bg1", "hover-bg2", "hover-bg3", "hover-bg4",
+        "hover-bg5", "hover-bg6", "hover-bg7", "hover-bg8"
+    );
 
-        if (btn.id === "btn1") {
-            dashboard.classList.add("hover-bg1");
-            buttons.forEach(b => b.classList.add("hover-btn-bg1")); // Apply to all buttons
-        } 
-        if (btn.id === "btn2") {
-            dashboard.classList.add("hover-bg2");
-            buttons.forEach(b => b.classList.add("hover-btn-bg2"));
-        }
-        if (btn.id === "btn3") {
-            dashboard.classList.add("hover-bg3");
-            buttons.forEach(b => b.classList.add("hover-btn-bg3"));
-        }
-        if (btn.id === "btn4") {
-            dashboard.classList.add("hover-bg4");
-            buttons.forEach(b => b.classList.add("hover-btn-bg4"));
-        }
-        if (btn.id === "btn5") {
-            dashboard.classList.add("hover-bg5");
-            buttons.forEach(b => b.classList.add("hover-btn-bg5"));
-        }
-        if (btn.id === "btn6") {
-            dashboard.classList.add("hover-bg6");
-            buttons.forEach(b => b.classList.add("hover-btn-bg6"));
-        }
-        if (btn.id === "btn7") {
-            dashboard.classList.add("hover-bg7");
-            buttons.forEach(b => b.classList.add("hover-btn-bg7"));
-        }
-        if (btn.id === "btn8") {
-            dashboard.classList.add("hover-bg8");
-            buttons.forEach(b => b.classList.add("hover-btn-bg8"));
+    buttons.forEach((btn) => {
+        btn.classList.remove(
+            "hover-btn-bg1", "hover-btn-bg2", "hover-btn-bg3", "hover-btn-bg4",
+            "hover-btn-bg5", "hover-btn-bg6", "hover-btn-bg7", "hover-btn-bg8",
+            "selected-btn"
+        );
+    });
+};
+
+buttons.forEach((btn) => {
+    const colorIndex = btn.id.slice(-1); // Extract last number from button ID
+
+    btn.addEventListener("mouseenter", () => {
+        if (!selectedColor) { // Apply hover effect only if no button is clicked
+            removeHoverClasses();
+            dashboard.classList.add(`hover-bg${colorIndex}`);
+
+            // Apply hover effect to all buttons
+            buttons.forEach((b) => b.classList.add(`hover-btn-bg${colorIndex}`));
         }
     });
 
     btn.addEventListener("mouseleave", () => {
-        removeHoverClasses(); // Reset when mouse leaves
+        if (!selectedColor) { // Remove hover effect if no button is selected
+            removeHoverClasses();
+        }
+    });
+
+    btn.addEventListener("click", () => {
+        selectedColor = colorIndex; // Store clicked button color
+        removeHoverClasses(); // Remove previous styles
+
+        // Apply selected color to all buttons & dashboard
+        dashboard.classList.add(`hover-bg${colorIndex}`);
+        buttons.forEach((b) => {
+            b.classList.add(`hover-btn-bg${colorIndex}`);
+        });
+
+        buttons.forEach((b) => {
+            if (b === btn) {
+                // Make only the clicked button white
+                b.classList.add("selected-btn");
+            } else {
+                // Other buttons get the selected button’s background color
+                b.classList.add(`hover-btn-bg${colorIndex}`);
+            }
+        });
     });
 });
 
-  //Screenshot functionality
-  const saveBtn = document.getElementById('save-btn');
+saveBtn.addEventListener("click", async () => {
+    saveBtn.classList.add('hidden'); // Hide button
 
-  saveBtn.addEventListener('click', () => {
-    saveBtn.classList.add('hidden');
-    //Send message to the main process to capture the screenshot
-    window.electronAPI.captureScreenshot();
-  });
+    // Small delay to ensure button disappears
+    setTimeout(async () => {
+        const screenshotPath = await window.electronAPI.takeScreenshot();
+        alert(`Screenshot saved to: ${screenshotPath}`);
 
-  //Listen for the 'screenshot-saved' event from main process
-  window.electronAPI.onScreenshotSaved((event, filePath) => {
-    console.log('Screenshot saved at:', filePath);
-    alert(`Screenshot saved at: ${filePath}`);
-    saveBtn.classList.remove('hidden');
-  });
+        saveBtn.classList.remove('hidden'); // Show button again
+    }, 100); // Adjust this delay if necessary
+});

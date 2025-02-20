@@ -132,7 +132,7 @@ body{
     border-radius: 10px;
     background-color: #739159;
     color: #fff;
-    transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
 }
 .btn img {
     width: 32px;
@@ -142,6 +142,12 @@ body{
     transform: scale(1.05) perspective(1px);
     transition: 0.3 ease;
     cursor: pointer;
+}
+.selected-btn {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid white;
+    transform: scale(1.1);
 }
 .hover-bg1 {
     background-color: #ACC794;
@@ -211,6 +217,7 @@ body{
     margin-bottom: 16px;    
 }
 .bottomDiv textarea {
+    padding: 4px;
     border: none;
     border-radius: 10px;
     font-family: 'Segoe UI', sans-serif;
@@ -235,4 +242,8 @@ body{
     transform: scale(1.1) perspective(1px);
     transition: 0.3 ease;
     cursor: pointer;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Optional: Prevent clicks on the hidden button */
 }
