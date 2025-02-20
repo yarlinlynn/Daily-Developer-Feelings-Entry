@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles.css">
+    <title>Daily feelings...</title>
+</head>
+<body>
+    <div class="dashboardDiv">
+        <div class="emotionDiv">
+            <h2>How I feel today ?</h2>
+            <button id="btn1" class="btn">Happy</button>
+            <button id="btn2" class="btn">Loved</button>
+            <button id="btn3" class="btn">Confident</button>
+            <button id="btn4" class="btn">Playful</button>
+            <button id="btn5" class="btn">Embarrassed</button>
+            <button id="btn6" class="btn">Angry</button>
+            <button id="btn7" class="btn">Scared</button>
+            <button id="btn8" class="btn">Sad</button>        
+        </div>
+
+        <div class="bottomDiv">
+            <div class="explainFeels">
+                <h2>What made me feel that way ?</h2>
+                <textarea name="feelInput" id="feelInput" rows="4" cols="50"></textarea>
+            </div>
+
+            <div class="wishTmr">
+                <h2>What I wish for myself tomorrow ?</h2>
+                <textarea name="wishInput" id="wishInput"></textarea>
+            </div>            
+        </div>
+        <button id="save-btn">Save for today</button>
+    </div>
+
+
+    
+    <script src="writeToday.js"></script>
+</body>
+</html>

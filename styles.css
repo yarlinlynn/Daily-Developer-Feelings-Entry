@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gamja Flower';
 }
 body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #010718;
     overflow: hidden;
 }
 .mainDiv {
@@ -30,7 +29,7 @@ body{
 .titleDiv .text{
     position: relative;
     color: #4070F4;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
 }
 .titleDiv .text.immobile{
@@ -67,12 +66,12 @@ body{
     }
 }
 .btnDiv {
-    margin: 64px;
+    margin: 48px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 #start-btn {
+    font-size: 16px;
     font-weight: 600;
     padding: 12px 24px;
     background-color: #fff;
