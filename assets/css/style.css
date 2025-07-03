@@ -1,0 +1,140 @@
+/*-----------------------------------*\
+  #BASE STYLES
+\*-----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+:root {
+    --feeling-bg-1: ;
+    --feeling-bg-2: ;
+    --feeling-bg-3: ;
+    --feeling-bg-4: ;
+    --feeling-bg-5: ;
+    --feeling-bg-6: ;
+    --feeling-bg-7: ;
+    --feeling-bg-8: ;
+
+    --dashborad-bg: ;
+}
+
+/*-----------------------------------*\
+  #RESET STYLES
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Gamja Flower", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background: none;
+}
+
+/*-----------------------------------*\
+  #INDEX PAGE STYLES
+\*-----------------------------------*/
+
+body.main { background: #abc793; }
+
+main.container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer {
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.text {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+/* .text.standard { color: rgb(255, 255, 255); } */
+
+.text.animate-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* background-color: #010718; */
+    border-left: 2px solid #fff;
+    animation: animate 4s steps(12) infinite;
+}
+
+/* background color animations 
+.text.mobile.bg-ACC794:before {
+    background-color: #ACC794;
+}
+
+.text.mobile.bg-283593:before {
+    background-color: #283593;
+}
+
+.text.mobile.bg-FF7704:before {
+    background-color: #FF7704;
+}
+@keyframes animate{
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}*/
+
+.startBtnContainer { margin: 48px; }
+
+#start-btn {
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(255, 255, 255);
+    color: rgb(34, 34, 34);
+    box-shadow: rgba(21, 30, 8, 0.6) 2px 2px 4px;
+    padding: 12px 24px;
+    border-radius: 50px;
+}
+
+/*-----------------------------------*\
+  #WRITE ENRTY STYLES
+\*-----------------------------------*/
+
+
+
+
+/*-----------------------------------*\
+  #SIGN UP PAGE STYLES
+\*-----------------------------------*/
+
+
+
+
+/*-----------------------------------*\
+  #DASHBORAD PAGE STYLES
+\*-----------------------------------*/
