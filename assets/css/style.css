@@ -38,7 +38,8 @@ body {
     min-height: 100vh;
     display: grid;
     place-content: center;
-    overflow: hidden;
+     margin: 2rem auto 1.5rem;
+    /* overflow: hidden; perhaps add media query for larger screens */
 }
 
 button {
@@ -46,12 +47,6 @@ button {
     border: none;
     background: none;
 }
-
-/*-----------------------------------*\
-  #INDEX PAGE STYLES
-\*-----------------------------------*/
-
-body.main { background: #abc793; }
 
 main.container {
     width: 100vw;
@@ -61,6 +56,12 @@ main.container {
     align-items: center;
     justify-content: center;
 }
+
+/*-----------------------------------*\
+  #INDEX PAGE STYLES
+\*-----------------------------------*/
+
+body.main { background: #abc793; }
 
 .contentContainer {
     width: 90%;
@@ -122,11 +123,92 @@ main.container {
 }
 
 /*-----------------------------------*\
-  #WRITE ENRTY STYLES
+  #NEW ENRTY PAGE STYLES
 \*-----------------------------------*/
 
+body.newEntry {
+    background-color: #ACC794;
+    color: #fff;
+    transition: background-color 0.4s ease-in-out;
+}
+
+body.newEntry > main.container { 
+    gap: 5rem; 
+    padding: 1rem;
+}
+
+.emtionQuestionaire .title-text {
+    font-size: 32px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.emotion-counter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    /* padding-inline: 0.5rem;  add this in media query for 430px of 0.5 as 344px looks goo without padding-inline, add 4rem for 540px*/
+}
+
+.btn {
+    display: grid;
+    place-content: center;
+    gap: 5px;
+    min-width: 72px;
+    max-height: 72px;
+    padding: 8px 0;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background-color: #739159;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.btn img {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+}
+
+.entryThoughts {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+}
+
+.entryThoughts .subtitle {
+    margin-bottom: 1rem;
+    /* text-align: center;  media query*/
+}
+
+section textarea {
+    padding: 4px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    width: 100%;
+    height: calc(1.5em * 8); /*  height: calc(1.5em * 10) for media query */
+    line-height: 1.5em;
+    overflow-y: auto;
+    resize: none;
+}
 
 
+#newEntryBtn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #222;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 2px 2px 4px rgba(21, 30, 8, 0.6);
+    margin-top: -2.5rem;
+}
 
 /*-----------------------------------*\
   #SIGN UP PAGE STYLES
