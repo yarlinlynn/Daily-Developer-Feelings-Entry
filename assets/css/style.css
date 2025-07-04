@@ -64,7 +64,7 @@ main.container {
 body.main { background: #abc793; }
 
 .contentContainer {
-    width: 90%;
+    width: 100%;
     text-align: center;
     overflow: hidden;
 }
@@ -101,6 +101,8 @@ body.main { background: #abc793; }
 .text.mobile.bg-FF7704:before {
     background-color: #FF7704;
 }
+*/
+
 @keyframes animate{
     40%, 60%{
         left: calc(100% + 4px);
@@ -108,7 +110,7 @@ body.main { background: #abc793; }
     100%{
         left: 0%;
     }
-}*/
+}
 
 .startBtnContainer { margin: 48px; }
 
@@ -132,6 +134,11 @@ body.newEntry {
     transition: background-color 0.4s ease-in-out;
 }
 
+@media screen and (min-width: 600px) {
+    body.newEntry { overflow: hidden; }
+   
+}
+
 body.newEntry > main.container { 
     gap: 5rem; 
     padding: 1rem;
@@ -146,8 +153,8 @@ body.newEntry > main.container {
 .emotion-counter {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    justify-content: space-between;
+    gap: 1rem;
+    justify-content: center;
     /* padding-inline: 0.5rem;  add this in media query for 430px of 0.5 as 344px looks goo without padding-inline, add 4rem for 540px*/
 }
 
@@ -179,9 +186,17 @@ body.newEntry > main.container {
     gap: 2rem;
 }
 
+@media screen and (min-width: 720px) {
+    .entryThoughts { 
+        grid-template-columns: 1fr 1fr; 
+        padding-inline: 3rem;
+    }    
+
+    .entryThoughts .subtitle { text-align: center; }
+}
+
 .entryThoughts .subtitle {
     margin-bottom: 1rem;
-    /* text-align: center;  media query*/
 }
 
 section textarea {
