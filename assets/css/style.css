@@ -48,6 +48,15 @@ button {
     background: none;
 }
 
+img,
+button,
+li,
+a { cursor: pointer; }
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
 main.container {
     width: 100vw;
     min-height: 100vh;
@@ -129,7 +138,7 @@ body.main { background: #abc793; }
 \*-----------------------------------*/
 
 body.newEntry {
-    background-color: #ACC794;
+    background-color: rgb(168, 155, 209);
     color: #fff;
     transition: background-color 0.4s ease-in-out;
 }
@@ -168,12 +177,31 @@ body.newEntry > main.container {
     font-weight: 600;
     border: none;
     border-radius: 10px;
-    background-color: #739159;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  cursor: pointer;
 }
 
-.btn img {
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn.selected {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+img {width: 5px;}
+
+.btn > img {
     width: 32px;
     height: 32px;
     margin: 0 auto;

@@ -10,52 +10,66 @@ const btn7 = document.getElementById('btn7')
 const btn8 = document.getElementById('btn8')
 
 // HOEVER STATES FOR EMOTIONS BUTTONS
+btn1.addEventListener("mouseover", function() {
+  document.querySelector('body').style.backgroundColor = '#acc794';
+})
+btn1.addEventListener("mouseleave", function() {
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
+})
 
 btn2.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#ffb3c8';
 })
 btn2.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = 'acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn3.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#75e4ff';
 })
 btn3.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn4.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#ffce3f';
 })
 btn4.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn5.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#83da79';
 })
 btn5.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn6.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#e88015';
 })
 btn6.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn7.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#7897d4';
 })
 btn7.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
 
 btn8.addEventListener("mouseover", function() {
   document.querySelector('body').style.backgroundColor = '#a4b4d4';
 })
 btn8.addEventListener("mouseleave", function() {
-  document.querySelector('body').style.backgroundColor = '#acc794';
+  document.querySelector('body').style.backgroundColor = 'rgb(168, 155, 209)';
 })
+
+// DECLARE ACTIVE BUTTON
+document.querySelector('.btn').addEventListener('click', activeBtn);
+
+//ALLOW ME TO ADD A ACTIVE BUTTON 
+function activeBtn() {
+  this.classList.toggle('selected'); 
+}
