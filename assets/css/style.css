@@ -38,8 +38,7 @@ body {
     min-height: 100vh;
     display: grid;
     place-content: center;
-     margin: 2rem auto 1.5rem;
-    /* overflow: hidden; perhaps add media query for larger screens */
+    margin: 2rem auto 1.5rem;
 }
 
 button {
@@ -66,59 +65,48 @@ main.container {
     justify-content: center;
 }
 
+.typed-cursor {
+    font-size: 2rem;   
+    margin-left: 3px;       
+    font-weight: 500;        
+    line-height: 1;          
+    color: currentColor;      
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    color: white;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
 /*-----------------------------------*\
   #INDEX PAGE STYLES
 \*-----------------------------------*/
 
-body.main { background: #abc793; }
+body.main { 
+    /* background: #abc793;  */
+    transition: background-color 0.5s ease;
+}
 
 .contentContainer {
     width: 100%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .text {
     position: relative;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
 }
 
-/* .text.standard { color: rgb(255, 255, 255); } */
-
-.text.animate-text::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    /* background-color: #010718; */
-    border-left: 2px solid #fff;
-    animation: animate 4s steps(12) infinite;
-}
-
-/* background color animations 
-.text.mobile.bg-ACC794:before {
-    background-color: #ACC794;
-}
-
-.text.mobile.bg-283593:before {
-    background-color: #283593;
-}
-
-.text.mobile.bg-FF7704:before {
-    background-color: #FF7704;
-}
-*/
-
-@keyframes animate{
-    40%, 60%{
-        left: calc(100% + 4px);
-    }
-    100%{
-        left: 0%;
-    }
+.text.animate-text { 
+    margin-left: 0.7rem; 
+    letter-spacing: 1px;
+    color: white;
 }
 
 .startBtnContainer { margin: 48px; }
@@ -164,7 +152,6 @@ body.newEntry > main.container {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    /* padding-inline: 0.5rem;  add this in media query for 430px of 0.5 as 344px looks goo without padding-inline, add 4rem for 540px*/
 }
 
 .btn {
@@ -234,7 +221,7 @@ section textarea {
     font-family: 'Segoe UI', sans-serif;
     font-size: 14px;
     width: 100%;
-    height: calc(1.5em * 8); /*  height: calc(1.5em * 10) for media query */
+    height: calc(1.5em * 8); 
     line-height: 1.5em;
     overflow-y: auto;
     resize: none;

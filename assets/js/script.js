@@ -1,3 +1,34 @@
+// typing animation
+document.addEventListener("DOMContentLoaded", function () {
+  const words = ["Inspired", "Dejected", "Frustrated", "Satisfied"];
+  const colors = ["rgb(255, 179, 200)", "rgb(164, 180, 212)", "#e88015", "#acc794"]; 
+
+  const animateEl = document.querySelector(".animate-text");
+
+  if (!animateEl) {
+    console.error("Element '.animate-text' not found!");
+    return;
+  }
+
+  const typed = new Typed(animateEl, {
+    strings: words,
+    typeSpeed: 150,
+    backSpeed: 90,
+    backDelay: 1000,
+    loop: true,
+    showCursor: true,
+    cursorChar: "|",
+
+    preStringTyped: function (pos) {
+      const color = colors[pos % colors.length];
+      document.body.style.backgroundColor = color;
+    },
+  });
+
+  // Optional: set initial background before typing starts
+  document.body.style.backgroundColor = colors[0];
+});
+
 // DECLARE EMOTION BUTTONS IN NEW-ENTRY.HTML
 
 const btn1 = document.getElementById('btn1');
@@ -154,4 +185,5 @@ btn8.addEventListener("click", function() {
   }
 });
 
-// NOTE FOR LATER ONCE I GET TO IT USE ARROW FUNCTIONS
+
+
